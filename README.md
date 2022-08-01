@@ -10,9 +10,9 @@ Integrate the Bridgefy SDK into your Android and iOS app to reach the 3.5 billio
 
 **Website**. https://bridgefy.me/sdk/
 
- **Email**. contact@bridgefy.me **T**
+ **Email**. contact@bridgefy.me
 
-**witter**. https://twitter.com/bridgefy 
+**Twitter**. https://twitter.com/bridgefy 
 
 **Facebook**. https://www.facebook.com/bridgefy
 
@@ -26,23 +26,35 @@ All the connections are handled seamlessly by the SDK to create a mesh network. 
 
 ### Start the SDK
 
-The following code shows how to start the SDK (using your API key) and how to assign the delegate. By default the SDK starts using the **Standard propagation profile** mode
+The following code shows how to start the SDK (using your API key) and how to assign the delegate.
 
 ```swift
 func start(withAPIKey apiKey: String,
-              propagationProfile: PropagationProfile = .standard,
-              delegate: BridgefyDelegate,
-              verboseLogging: Bool = false) throws {
+           delegate: BridgefyDelegate) throws {
     }
 ```
 
-The string **“apiKey”** represents a valid API key. An Internet connection is needed at least for the first time in order to validate the license.
+The string **apiKey** represents a valid API key. An Internet connection is needed at least for the first time in order to validate the license.
+The **delegate** is the class that will implement all the delegate methods from the BridgefySDK.
 
-To stop it, use the following code:
+Once the service is started, the following delegate function is called:
+
+```swift
+func bridgefyDidStart(with currentUserID: UUID)
+```
+
+The **currentUserID** is the id used to identify the current user/device in the BridgefySDK.
+
+In the case an error occurs while starting the BridgefySDK, the following delegate function is called:
+
+```swift
+func bridgefyDidFailToStart(with error: BridgefyError)
+```
+
+To stop the SDK, use the following function:
 
 ```swift
  func stop()
-
 ```
 
 ### Nearby peer detection
@@ -50,7 +62,7 @@ To stop it, use the following code:
 The following method is invoked when a peer has established connection:
 
 ```swift
-func bridgefyDidConnect(withUserID userID: String)
+func bridgefyDidConnect(withUserID userID: UUID)
 ```
 
 **userID**: Identifier of the user that has established a connection.
@@ -58,86 +70,71 @@ func bridgefyDidConnect(withUserID userID: String)
 When a peer is disconnected(out of range), the following method will be invoked:
 
 ```swift
-func bridgefyDidDisconnect(fromUserID userID: String)
+func bridgefyDidDisconnect(fromUserID userID: UUID)
 ```
 
 **userID**: Identifier of the disconnected user.
 
-### Send data
+### Sending data
 
-The following method is used to send data using a transmission mode. This method returns the message id (**messageID**) to the client.
+The following method is used to send data using a transmission mode. This method returns a UUID to identify the message sent.
 
 ```swift
- func send(_ data: Data,
-           using transmissionMode: TransmissionMode) throws -> String
+func send(_ data: Data,
+          using transmissionMode: BridgefyTransmissionMode) throws -> UUID
 ```
 
 **messageID**: Unique identifier related to the message.
 
+If the message was successfully sent the following delegate method is called:
+
+```swift
+func bridgefyDidSendMessage(with messageID: UUID)
+```
+
+**messageID**: The unique identifier of the message sent.
+
+***Note:*** Is important to notice that the call of this delegate method doesn't mean that the message was delivered, this is due to the nature of how the mesages travel through the mesh network created by the BridgefySDK. The ONLY scenario where you can assume that the message was delivered is when it was sent using the `p2p` transmission mode; otherwise it only means that there's no pre-validation error and the SDK will start propagating the message.
+
+If an error occurs while sending a message, the following delegate method is called:
+
+```swift
+func bridgefyDidFailSendingMessage(with messageID: UUID,
+                                   withError error: BridgefyError)
+```
+
+### Receiving Data
+
+When a packet has been received, the following method will be invoked:
+
+```swift
+func bridgefyDidReceiveData(_ data: Data,
+                            using transmissionMode: BridgefyTransmissionMode)
+```
+
+**data**: Received data.
+**transmissionMode**: The transmission mode used to deliver the message, from here you can get the messageID of the sender.
+
 **Transmission Modes**:
 
 ```swift
-enum TransmissionMode {
-    case p2p(userID: String)
-    case mesh(userID: String)
+enum BridgefyTransmissionMode {
+    case p2p(userID: UUID)
+    case mesh(userID: UUID)
     case broadcast
 }
 ```
 
 There are several modes for sending packets:
 
-**p2p(userID: String)**: Sends the packet only when the receiver is in range. **mesh(userID: String)**: Sends the packet using mesh. It doesn’t need the receiver to be in range. **broadcast**: Sends a packet using mesh without a defined receiver. The packet is broadcast to all nearby users that are or aren’t in range.
+**p2p(userID: UUID)**: Sends the message data only when the receiver is in range, otherwise an error is reported.
+**mesh(userID: UUID)**: Sends the message data using the mesh created by the SDK. It doesn’t need the receiver to be in range. 
+**broadcast**: Sends a packet using mesh without a defined receiver. The packet is broadcast to all nearby users that are or aren’t in range.
 
-If there is no error when sending the message, the following method will be received with the message id (**messageID**)
-
-```swift
-func bridgefyDidSend(_ messageID: String)
-```
-
-otherwise, the following method will be received
-
-```swift
-func bridgefyDidFailToSend(_ messageID: String)
-```
+***Note:*** The mesh and broadcast modes will be available in a feature release of the SDK.
 
 ### Direct and mesh transmission
 
 Direct transmission is a mechanism used to deliver packets to a user that is nearby or visible (a connection has been detected).
 
 Mesh transmission is a mechanism used to deliver offline packets even when the receiving user isn’t nearby or visible. It can be achieved taking advantage of other nearby peers; these receive the package, hold it, and forward to other peers trying to find the receiver.
-
-A message can be transmitted using mesh transmission, direct transmission, or both. ### Receive Data When a packet has been received, the following method will be invoked:
-
-```swift
-func bridgefyDidReceive(_ data: Data,
-                        with messageID: String,
-                        through transmissionMode: TransmissionMode)
-```
-
-**data**: Received Data object **messageID**: Unique identifier related to the message. **transmissionMode**: The transmission mode used when sending the message
-
-### Propagation Profiles
-
-```swift
-enum PropagationProfile {
-    case standard
-    case highDensityNetwork
-    case sparseNetwork
-    case longReach
-    case shortReach
-}
-```
-
-| **Profile** | **Hops limit** | **TTL(s)** | **Sharing Time** | **Maximum Propagation** | **Tracklist limit** |
-|---|---|---|---|---|---|
-| Standard | 100 | 86400 (1 d) | 15000 | 200 | 50 |
-| High Density Network | 50 | 3600 (1 h) | 10000 | 50 | 50 |
-| Sparse Network | 100 | 302400 (3.5 d) | 10000 | 250 | 50 |
-| Long Reach | 250 | 604800 (7 d) | 15000 | 1000 | 50 |
-| Short Reach | 0 | 0 | 0 | 0 | 0 |
-
-- **Hops limit:** The maximum number of hops a message can get. Each time a message is forwarded, is considered a hop.
-- **TTL:** Time to live, is the maximum amount of time a message can be propagated since its creation.
-- **Sharing time:** The maximum amount of time a message will be kept for forwarding.
-- **Maximum propagation:** The maximum number of times a message will be forwarded from a device.
-- **Tracklist limit:** The maximum number of UUID’s stored in an array to prevent sending the message to a peer which already forwarded the message.
