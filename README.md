@@ -22,6 +22,35 @@ All the connections are handled seamlessly by the SDK to create a mesh network. 
 
 ![https://github.com/bridgefy/bridgefy-ios-sdk-sample/blob/master/img/Mobile_Adhoc_Network.gif?raw=true](https://github.com/bridgefy/bridgefy-ios-sdk-sample/blob/master/img/Mobile_Adhoc_Network.gif?raw=true)
 
+## Installation
+
+1. Clone this repository or download the `BridgefySDK.framework` from this [link](https://bridgefy.me/beta/BridgefySDK.xcframework.zip).
+2. Drag the `BridgefySDK.framework` folder to the top of your project's hierarchy in Xcode.
+
+<p align=center>
+<img src="img/Installation1.png"/>
+</p>
+
+3. Select the option `Copy items if needed` from the dialog window that appears after releasing the folder into your project.
+
+<p align=center>
+<img src="img/Installation2.png"/>
+</p>
+
+4. Import the Bridgefy SDK using the following code:
+
+```swift
+import BridgefySDK
+```
+
+### Permissions
+
+The BridgefySDK requires permission to use the Bluetooth antenna of the devices where it's installed; to achieve this you have to add a couple of entries on the `Info.plist` of your project, the entries are depicted in the following image:
+
+<p align=center>
+<img src="img/Permissions.png"/>
+</p>
+
 ## Usage
 
 ### Start the SDK
@@ -29,9 +58,13 @@ All the connections are handled seamlessly by the SDK to create a mesh network. 
 The following code shows how to start the SDK (using your API key) and how to assign the delegate.
 
 ```swift
-func start(withAPIKey apiKey: String,
-           delegate: BridgefyDelegate) throws {
-    }
+do {
+    try Bridgefy.manager.start(withAPIKey apiKey: String,
+                               delegate: BridgefyDelegate)
+} catch {
+    // Handle the error
+}
+
 ```
 
 The string **apiKey** represents a valid API key. An Internet connection is needed at least for the first time in order to validate the license.
@@ -54,7 +87,7 @@ func bridgefyDidFailToStart(with error: BridgefyError)
 To stop the SDK, use the following function:
 
 ```swift
- func stop()
+ Bridgefy.manager.stop()
 ```
 
 ### Nearby peer detection
@@ -80,8 +113,12 @@ func bridgefyDidDisconnect(fromUserID userID: UUID)
 The following method is used to send data using a transmission mode. This method returns a UUID to identify the message sent.
 
 ```swift
-func send(_ data: Data,
-          using transmissionMode: BridgefyTransmissionMode) throws -> UUID
+do {
+    let messageID = try send(_ data: Data,
+                             using transmissionMode: BridgefyTransmissionMode)
+} catch {
+    // Handle the error
+}
 ```
 
 **messageID**: Unique identifier related to the message.
