@@ -27,21 +27,27 @@ All the connections are handled seamlessly by the SDK to create a mesh network. 
 1. Clone this repository or download the `BridgefySDK.framework` from this [link](https://bridgefy.me/beta/BridgefySDK.xcframework.zip).
 2. Drag the `BridgefySDK.framework` folder to the top of your project's hierarchy in Xcode.
 
-<p align=center>
-<img src="img/Installation1.png"/>
-</p>
+    <p align=center>
+    <img src="img/Installation1.png"/>
+    </p>
 
 3. Select the option `Copy items if needed` from the dialog window that appears after releasing the folder into your project.
 
-<p align=center>
-<img src="img/Installation2.png"/>
-</p>
+    <p align=center>
+    <img src="img/Installation2.png"/>
+    </p>
 
-4. Import the Bridgefy SDK using the following code:
+4. In the general section of your projects target, go to the section `Frameworks, Libraries and Embedded Content` look for the `BridgefySDK.framework`, and in the `Embed` column select the option ***Embed & Sign***
 
-```swift
-import BridgefySDK
-```
+    <p align=center>
+    <img src="img/Installation3.png"/>
+    </p>
+
+5. Import the Bridgefy SDK using the following code:
+
+    ```swift
+    import BridgefySDK
+    ```
 
 ### Permissions
 
