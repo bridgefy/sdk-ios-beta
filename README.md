@@ -1,6 +1,6 @@
 # SDK iOS Beta Documentation
 
-# Bridgefy
+> :bangbang: **The Bridgefy SDK** currently supports **P2P connections**, but we're adding **Mesh Networking, Broadcast, and Signal Protocol** encryption by mid-October! You can begin integrating the current version and add the updates as they're published.
 
 ## Overview
 
