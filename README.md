@@ -24,6 +24,17 @@ All the connections are handled seamlessly by the SDK to create a mesh network. 
 
 ## Installation
 
+### Swift Package Manager
+
+The Swift Package Manager is a tool for managing the distribution of Swift code. It’s integrated with the Swift build system to automate the process of downloading, compiling, and linking dependencies.
+
+1. Follow the [Apple documentation](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app) on how to add a package to your project.
+2. Paste the following URL `https://github.com/bridgefy/sdk-ios-beta`, into the Package Dependencies search bar.
+3. Use the version-based Package Requirements, and set the value to the latest version of the Bridgefy SDK.
+
+
+### Manually
+
 1. Clone this repository or download the `BridgefySDK.framework` from this [link](https://bridgefy.me/beta/BridgefySDK.xcframework.zip).
 2. Drag the `BridgefySDK.framework` folder to the top of your project's hierarchy in Xcode.
 
