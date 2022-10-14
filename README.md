@@ -32,6 +32,32 @@ The Swift Package Manager is a tool for managing the distribution of Swift code.
 2. Paste the following URL `https://github.com/bridgefy/sdk-ios-beta`, into the Package Dependencies search bar.
 3. Use the version-based Package Requirements, and set the value to the latest version of the Bridgefy SDK.
 
+### Cocoapods
+
+> The official BridgefySDK pod hasn't been released yet, but you can add it to your project using the Beta repository.
+
+CocoaPods is a dependency manager that lets you add third-party frameworks and libraries to projects. For installation instructions, see [Install CocoaPods](https://guides.cocoapods.org/using/getting-started.html#toc_3).
+
+Add the Bridgefy SDK to your Podfile and install it in your project as follows:
+
+1. Add pod 'BridgefySDK' to the do block:
+
+    ```cocoapods
+    platform :ios, '13.0'
+
+    target 'SDK test' do
+    use_frameworks!
+
+    pod 'BridgefySDK', :git => 'https://github.com/bridgefy/sdk-ios-beta', :branch => 'main'
+    end
+    ```
+
+2. Save the Podfile.
+3. Run the following command in the Terminal:
+
+    ```terminal
+    $ pod install
+    ```
 
 ### Manually
 
