@@ -2681,17 +2681,23 @@
           {
             "kind": "Function",
             "name": "bridgefyDidStart",
-            "printedName": "bridgefyDidStart()",
+            "printedName": "bridgefyDidStart(with:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "Void",
                 "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UUID",
+                "printedName": "Foundation.UUID",
+                "usr": "s:10Foundation4UUIDV"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11BridgefySDK0A8DelegateP16bridgefyDidStartyyF",
-            "mangledName": "$s11BridgefySDK0A8DelegateP16bridgefyDidStartyyF",
+            "usr": "s:11BridgefySDK0A8DelegateP16bridgefyDidStart4withy10Foundation4UUIDV_tF",
+            "mangledName": "$s11BridgefySDK0A8DelegateP16bridgefyDidStart4withy10Foundation4UUIDV_tF",
             "moduleName": "BridgefySDK",
             "genericSig": "<τ_0_0 where τ_0_0 : BridgefySDK.BridgefyDelegate>",
             "sugared_genericSig": "<Self where Self : BridgefySDK.BridgefyDelegate>",
@@ -5701,7 +5707,7 @@
       "kind": "IntegerLiteral",
       "offset": 401,
       "length": 1,
-      "value": "0"
+      "value": "1"
     },
     {
       "filePath": "\/Users\/guillermo\/Developer\/bridgefy-sdk-ios\/BridgefySDK\/Sources\/Utils\/SDKVersion.swift",
