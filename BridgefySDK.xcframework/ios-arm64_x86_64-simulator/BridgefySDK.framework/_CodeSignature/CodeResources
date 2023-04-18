@@ -18,43 +18,43 @@
 		</data>
 		<key>Modules/BridgefySDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		tAy51GD6mdIuIIFFPtgpQ9/ACY0=
+		QZmktEgrzlJ+hPa6O0x2k4S/Fo8=
 		</data>
 		<key>Modules/BridgefySDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		WSZpM68FKAC3Ynzxtaez9y/l0zI=
+		WgOhEPRzQitJclXZHS/vH71fBcQ=
 		</data>
 		<key>Modules/BridgefySDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		cVuLXl/MtEImKftexJB5QQhmLrU=
+		PDBHbLw+rReI6fZ8RElwY93JOnc=
 		</data>
 		<key>Modules/BridgefySDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		WSZpM68FKAC3Ynzxtaez9y/l0zI=
+		WgOhEPRzQitJclXZHS/vH71fBcQ=
 		</data>
 		<key>Modules/BridgefySDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		KA9a/5l9GffQ9h9Mn7Pr6MB9QuU=
+		F5fIUk7lPbZeM6pm6NDoamYmX5w=
 		</data>
 		<key>Modules/BridgefySDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		tAy51GD6mdIuIIFFPtgpQ9/ACY0=
+		QZmktEgrzlJ+hPa6O0x2k4S/Fo8=
 		</data>
 		<key>Modules/BridgefySDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		hfKLQmcV9GvEQ+D93m4aTlN+DUU=
+		gYJeYm7NaxdSykTjcMAZdxeiZ54=
 		</data>
 		<key>Modules/BridgefySDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		gboDFNheMZdIkl9j8ewfPKq9hXk=
+		DAKsiFbAAsIt0CIkn1UiEnoHQmA=
 		</data>
 		<key>Modules/BridgefySDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		hfKLQmcV9GvEQ+D93m4aTlN+DUU=
+		gYJeYm7NaxdSykTjcMAZdxeiZ54=
 		</data>
 		<key>Modules/BridgefySDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		K+UyeCZxtll/P7Mk+A7xXT8yDfM=
+		/OufXa4tfc5wWWhg1uEy9sJM8Ew=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -81,70 +81,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hvCgYuc2WQh8SpvPKliQXYMG8K0fihdqxfijQw5rdFw=
+			SaAf1x5xBPQJkOaEtdYOmwd9w1Z1wD/903MDRpUXIWY=
 			</data>
 		</dict>
 		<key>Modules/BridgefySDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qKe5+CTQDdb2U+A8vJXnMSYoIERyqXDDneBNoL7l1QU=
+			QaYxyZBwe5/PKMMPK3iA3EGpIvpSBu8sKJ/MMPBsq3A=
 			</data>
 		</dict>
 		<key>Modules/BridgefySDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			r6xqQSo72RFuop6pk2p869bpLgcElg1Mg+pCJGv1cP4=
+			pcfMjgr9YJl4efpVhar85o+XuP60RP/FESwcZUiZ0BY=
 			</data>
 		</dict>
 		<key>Modules/BridgefySDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qKe5+CTQDdb2U+A8vJXnMSYoIERyqXDDneBNoL7l1QU=
+			QaYxyZBwe5/PKMMPK3iA3EGpIvpSBu8sKJ/MMPBsq3A=
 			</data>
 		</dict>
 		<key>Modules/BridgefySDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ras//kRO0NMu2qUUa/Yt9yJ2aIRDOTu7bGIu8PdQitU=
+			DYMHz1xtITwH7gr9lQdNAR0WlGrQhO8IYJa28ZYr94A=
 			</data>
 		</dict>
 		<key>Modules/BridgefySDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hvCgYuc2WQh8SpvPKliQXYMG8K0fihdqxfijQw5rdFw=
+			SaAf1x5xBPQJkOaEtdYOmwd9w1Z1wD/903MDRpUXIWY=
 			</data>
 		</dict>
 		<key>Modules/BridgefySDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hL8+aXqPGEIJA2MdDBOmEqQ05uMhkdeSUbSXOgWfpFA=
+			cLksnXpQgNW/v36wZO2Z3zrF8wWiXgWbjMwGMSHxURA=
 			</data>
 		</dict>
 		<key>Modules/BridgefySDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			JJuqd5odLZXGVFtNzLHHhtknE+b3W3Fr0IaVwBny2sw=
+			iLNJajeHjy9NOMBcIu8jycqbeJhlbsnV7xgv4mjF8xQ=
 			</data>
 		</dict>
 		<key>Modules/BridgefySDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hL8+aXqPGEIJA2MdDBOmEqQ05uMhkdeSUbSXOgWfpFA=
+			cLksnXpQgNW/v36wZO2Z3zrF8wWiXgWbjMwGMSHxURA=
 			</data>
 		</dict>
 		<key>Modules/BridgefySDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			w5+0wi3thd89juaNlCKMJS8IwxES6xTyZQfRcNn03ik=
+			e2QoclWwC8xScEOlBc4gCdg/6eyohF5MhwfZcTBbDr8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

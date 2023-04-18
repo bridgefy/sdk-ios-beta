@@ -82,7 +82,7 @@ public enum TransmissionMode {
   case broadcast(senderId: Foundation.UUID)
 }
 public protocol BridgefyDelegate : AnyObject {
-  func bridgefyDidStart()
+  func bridgefyDidStart(with userId: Foundation.UUID)
   func bridgefyDidFailToStart(with error: BridgefySDK.BridgefyError)
   func bridgefyDidStop()
   func bridgefyDidFailToStop(with error: BridgefySDK.BridgefyError)
