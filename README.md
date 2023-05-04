@@ -96,14 +96,18 @@ The BridgefySDK requires permission to use the Bluetooth antenna of the devices 
 
 ## Usage
 
-### Start the SDK
+### Initialization
+
+The init method initializes the Bridgefy SDK with the given API key and propagation profile. The delegate parameter is required and should be an object that conforms to the BridgefyDelegate protocol. The verboseLogging parameter is optional and enables more detailed logging if set to true.
 
 The following code shows how to start the SDK (using your API key) and how to assign the delegate.
 
 ```swift
 do {
-    try Bridgefy.manager.start(withAPIKey apiKey: String,
-                               delegate: BridgefyDelegate)
+      bridgefy = try Bridgefy(withApiKey: apiKey,
+                              propagationProfile: PropagationProfile,
+                              delegate: BridgefyDelegate,
+                              verboseLogging: Bool)
 } catch {
     // Handle the error
 }
@@ -113,10 +117,13 @@ do {
 The string **apiKey** represents a valid API key. An Internet connection is needed at least for the first time in order to validate the license.
 The **delegate** is the class that will implement all the delegate methods from the BridgefySDK.
 
+### PropagationProfile
+The PropagationProfile parameter in the init method allows developers to define a series of properties and rules for the propagation of messages. It's an optional parameter with a default value of .standard.
+
 Once the service is started, the following delegate function is called:
 
 ```swift
-func bridgefyDidStart(with currentUserID: UUID)
+func bridgefyDidStart(with userId: UUID)
 ```
 
 The **currentUserID** is the id used to identify the current user/device in the BridgefySDK.
@@ -130,7 +137,7 @@ func bridgefyDidFailToStart(with error: BridgefyError)
 To stop the SDK, use the following function:
 
 ```swift
- Bridgefy.manager.stop()
+  func stop()
 ```
 
 ### Nearby peer detection
@@ -138,7 +145,7 @@ To stop the SDK, use the following function:
 The following method is invoked when a peer has established connection:
 
 ```swift
-func bridgefyDidConnect(withUserID userID: UUID)
+func bridgefyDidConnect(with userId: UUID)
 ```
 
 **userID**: Identifier of the user that has established a connection.
@@ -146,7 +153,7 @@ func bridgefyDidConnect(withUserID userID: UUID)
 When a peer is disconnected(out of range), the following method will be invoked:
 
 ```swift
-func bridgefyDidDisconnect(fromUserID userID: UUID)
+func bridgefyDidDisconnect(from userId: UUID)
 ```
 
 **userID**: Identifier of the disconnected user.
@@ -157,8 +164,9 @@ The following method is used to send data using a transmission mode. This method
 
 ```swift
 do {
-    let messageID = try send(_ data: Data,
-                             using transmissionMode: BridgefyTransmissionMode)
+    let messageID = try bridgefy.send(Data,
+                                 using: TransmissionMode)
+            
 } catch {
     // Handle the error
 }
@@ -169,7 +177,7 @@ do {
 If the message was successfully sent the following delegate method is called:
 
 ```swift
-func bridgefyDidSendMessage(with messageID: UUID)
+func bridgefyDidSendMessage(with messageId: UUID)
 ```
 
 **messageID**: The unique identifier of the message sent.
@@ -179,7 +187,7 @@ func bridgefyDidSendMessage(with messageID: UUID)
 If an error occurs while sending a message, the following delegate method is called:
 
 ```swift
-func bridgefyDidFailSendingMessage(with messageID: UUID,
+func bridgefyDidFailSendingMessage(with messageId: UUID,
                                    withError error: BridgefyError)
 ```
 
@@ -189,29 +197,29 @@ When a packet has been received, the following method will be invoked:
 
 ```swift
 func bridgefyDidReceiveData(_ data: Data,
-                            using transmissionMode: BridgefyTransmissionMode)
+                            with messageId: UUID,
+                            using transmissionMode: TransmissionMode)
 ```
 
 **data**: Received data.
-**transmissionMode**: The transmission mode used to deliver the message, from here you can get the messageID of the sender.
+**messageId**: The id of the message that was received
+**transmissionMode**: The transmission mode used to propagate a message
 
 **Transmission Modes**:
 
 ```swift
-enum BridgefyTransmissionMode {
-    case p2p(userID: UUID)
-    case mesh(userID: UUID)
-    case broadcast
+public enum TransmissionMode {
+    case p2p(userId: UUID)
+    case mesh(userId: UUID)
+    case broadcast(senderId: UUID)
 }
 ```
 
-There are several modes for sending packets:
+The mode used to propagate a message through nearby devices:
 
-**p2p(userID: UUID)**: Sends the message data only when the receiver is in range, otherwise an error is reported.
-**mesh(userID: UUID)**: Sends the message data using the mesh created by the SDK. It doesn’t need the receiver to be in range. 
-**broadcast**: Sends a packet using mesh without a defined receiver. The packet is broadcast to all nearby users that are or aren’t in range.
-
-***Note:*** The mesh and broadcast modes will be available in a feature release of the SDK.
+**p2p(userId: UUID)**: Sends the message data only when the receiver is in range, otherwise an error is reported.
+**mesh(userId: UUID))**: Sends the message data using the mesh created by the SDK. It doesn’t need the receiver to be in range. 
+**broadcast(senderId: UUID)**: Sends a packet using mesh without a defined receiver. The packet is broadcast to all nearby users that are or aren’t in range.
 
 ### Direct and mesh transmission
 
