@@ -14,11 +14,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		mQusJmMiNPSICdh5PnJQHoGWx+s=
+		idraf14SCYZXAoMHFRYVZvPvcxw=
 		</data>
 		<key>Modules/BridgefySDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		7IEgPtxJXKdnGNaCHEDpIi3xy50=
+		DQ0zmrbSBxkew9A7S3iCuqljAKg=
 		</data>
 		<key>Modules/BridgefySDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/BridgefySDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		bEAnFPne4oulH8+kMy8L1jo2Nhc=
+		yMlFMgIcH7CL/86Gg4ZMF1+BHZM=
 		</data>
 		<key>Modules/BridgefySDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		7IEgPtxJXKdnGNaCHEDpIi3xy50=
+		DQ0zmrbSBxkew9A7S3iCuqljAKg=
 		</data>
 		<key>Modules/BridgefySDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Modules/BridgefySDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		VXojSfR/WIHq9jhe+PhrIJ1u1WY=
+		P2nqIf6vlVYQguzIfFiCOn80GU0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -81,7 +81,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			51H/PMzB+uoEQGzVnOSsahhodmKcuZMnXQjY90FqTos=
+			byDZfck9n7KSJ/FloRTrbPkS0yTTGlI1+58qpig35+s=
 			</data>
 		</dict>
 		<key>Modules/BridgefySDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -109,14 +109,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LzaDdB2SG2YCzGeO/yr6Sr8o4jqMzvc2x35HmeVPh54=
+			5I5zBMEFdbH/0B6+Ty1ZeH9ssKETLM9RrrjuZn1vgHo=
 			</data>
 		</dict>
 		<key>Modules/BridgefySDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			51H/PMzB+uoEQGzVnOSsahhodmKcuZMnXQjY90FqTos=
+			byDZfck9n7KSJ/FloRTrbPkS0yTTGlI1+58qpig35+s=
 			</data>
 		</dict>
 		<key>Modules/BridgefySDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -144,7 +144,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			sD7300Hsm3EasApervcaTcEroQ0Nf4+ArvEecMxpH90=
+			JWW7EauE/2C//6zjFGoCDV48CrqjrTQu99Oadz95jpg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
